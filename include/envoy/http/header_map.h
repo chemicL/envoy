@@ -552,5 +552,12 @@ typedef std::unique_ptr<HeaderMap> HeaderMapPtr;
  */
 typedef std::vector<std::pair<LowerCaseString, std::string>> HeaderVector;
 
+class HeadersValidator {
+public:
+    virtual ~HeadersValidator() {};
+    virtual void validate(HeaderMapPtr&& headers)_PURE;
+    virtual void validate(HeaderEntry&& header)_PURE;
+};
+
 } // namespace Http
 } // namespace Envoy

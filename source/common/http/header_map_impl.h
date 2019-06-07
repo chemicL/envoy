@@ -203,5 +203,13 @@ protected:
 
 typedef std::unique_ptr<HeaderMapImpl> HeaderMapImplPtr;
 
+class HeaderValidatorImpl : HeaderValidator {
+public:
+
+  void validate(HeaderMapPtr&& headers) override;
+
+  void validate(HeaderEntry&& header) override;
+};
+
 } // namespace Http
 } // namespace Envoy

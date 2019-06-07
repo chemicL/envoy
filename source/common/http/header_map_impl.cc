@@ -599,5 +599,13 @@ void HeaderMapImpl::removeInline(HeaderEntryImpl** ptr_to_entry) {
   headers_.erase(entry->entry_);
 }
 
+void HeaderValidatorImpl::validate(HeaderMapPtr&& headers) {
+  ENVOY_STREAM_LOG(debug, "Problem for Julia in headers {}", *this, *headers);
+}
+
+void HeaderValidatorImpl::validate(HeaderEntry&& header) {
+  ENVOY_STREAM_LOG(debug, "Problem for Julia in header {}", *this, header);
+}
+
 } // namespace Http
 } // namespace Envoy

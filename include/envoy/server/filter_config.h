@@ -21,6 +21,7 @@
 #include "envoy/thread_local/thread_local.h"
 #include "envoy/tracing/http_tracer.h"
 #include "envoy/upstream/cluster_manager.h"
+#include "envoy/http/header_map.h"
 
 #include "common/common/assert.h"
 #include "common/common/macros.h"
@@ -158,6 +159,8 @@ public:
    *         messages.
    */
   virtual ProtobufMessage::ValidationVisitor& messageValidationVisitor() PURE;
+
+  virtual Http::HeadersValidator& headersValidator()_PURE;
 
   /**
    * @return Api::Api& a reference to the api object.
